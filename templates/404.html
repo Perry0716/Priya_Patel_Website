@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+<section class="error-section">
+    <div class="error-content">
+        <h1>404</h1>
+        <p>Sorry, the page you are looking for doesn't exist.</p>
+        <a href="{{ url_for('home') }}" class="accent-btn">Go Home</a>
+    </div>
+</section>
+
+{% endblock %}
+
+

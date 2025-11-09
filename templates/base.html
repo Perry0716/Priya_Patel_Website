@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Basic SEO and Meta -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if page == "home" %}Priya Patel – Data Scientist & Developer{% else %}
+        Priya Patel | {{ page|capitalize }}{% endif %}
+    </title>
+    <meta name="description" content="Portfolio website of Priya Patel, Data Scientist and Developer. Skills in Python, Data Analytics, Web Development, and more.">
+    <meta name="author" content="Priya Patel">
+
+    <!-- Favicon: add your own in /static/images/ -->
+    <link rel="icon" href="{{ url_for('static', filename='images/avatar.jpg') }}" type="image/jpeg">
+
+    <!-- Apple-like minimalist system fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <!-- Accent color for browsers -->
+    <meta name="theme-color" content="#007AFF">
+</head>
+<body>
+    <!-- Loading animation overlay -->
+    <div id="loader">
+        <div class="spinner"></div>
+    </div>
+
+    <header id="navbar" class="fixed-nav">
+        <nav>
+            <a href="{{ url_for('home') }}" class="logo" aria-label="Priya Patel Home">Priya Patel</a>
+            <ul>
+                <li><a href="{{ url_for('about') }}" class="{% if page == 'about' %}active{% endif %}">About</a></li>
+                <li><a href="{{ url_for('work') }}" class="{% if page == 'work' %}active{% endif %}">Work</a></li>
+                <li><a href="{{ url_for('resume') }}" class="{% if page == 'resume' %}active{% endif %}">Resume</a></li>
+                <li><a href="{{ url_for('contact') }}" class="contact-btn {% if page == 'contact' %}active{% endif %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div id="flash-messages">
+              {% for category, message in messages %}
+                <div class="flash {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <span>&copy; {{ 2024 }} Priya Patel</span>
+            <span>
+                <a href="https://linkedin.com/in/priya-patel-a82a40343" rel="noopener" target="_blank" aria-label="LinkedIn">LinkedIn</a>
+                &nbsp;|&nbsp;
+                <a href="https://github.com/Perry0716" rel="noopener" target="_blank" aria-label="GitHub">GitHub</a>
+            </span>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>
+
+

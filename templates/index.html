@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="hero">
+    <div class="hero-content">
+        <img src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="Priya Patel Portrait" class="avatar">
+        <h1 class="headline">Priya Patel</h1>
+        <h2 class="subtitle">Data Scientist & Developer</h2>
+        <p class="hero-desc">I uncover insights and solve business challenges using data analysis, machine learning, and elegant web applications.</p>
+        <a href="{{ url_for('work') }}" class="cta-btn">View My Work</a>
+    </div>
+</section>
+
+<!-- Section: Key Skills -->
+<section class="skills-section">
+    <div class="section-title">Core Skills</div>
+    <ul class="skills-list">
+        <li>Python, SQL, Java, JavaScript</li>
+        <li>Data Analysis & Visualization</li>
+        <li>Machine Learning & Statistical Modeling</li>
+        <li>Web Development (HTML, CSS, Flask)</li>
+        <li>Tableau, Excel, Power BI</li>
+        <li>Project Management, Communication</li>
+    </ul>
+</section>
+
+<!-- Subtle animation on scroll will be handled by CSS/JS -->
+
+<!-- Section: Quick Contact CTA -->
+<section class="contact-cta">
+    <div>
+        <span class="contact-text">Let's collaborate or connect for opportunities.</span>
+        <a href="{{ url_for('contact') }}" class="accent-btn">Contact Me</a>
+    </div>
+</section>
+{% endblock %}
+
+
