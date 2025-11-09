@@ -1,19 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-
 <section class="portfolio-section">
-    <h1>Portfolio</h1>
-    <p class="section-desc">Projects spanning data science, analytics, and web development.</p>
-    
-    <!-- Filter Bar -->
+    <h1>Projects</h1>
+    <p class="section-desc">A blend of analytics, dashboards, and software craftsmanship.</p>
     <div class="filter-controls">
         <button class="filter-btn active" data-category="All">All</button>
-        {% for cat in categories %}
-        <button class="filter-btn" data-category="{{ cat }}">{{ cat }}</button>
-        {% endfor %}
+        {% for cat in categories %}<button class="filter-btn" data-category="{{ cat }}">{{ cat }}</button>{% endfor %}
     </div>
-    
-    <!-- Project Grid -->
     <div class="project-grid">
         {% for project in projects %}
         <div class="project-card" data-category="{{ project['category'] }}">
@@ -33,7 +26,6 @@
         {% endfor %}
     </div>
 </section>
-
 {% endblock %}
 
 

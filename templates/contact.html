@@ -1,13 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
-
 <section class="contact-section">
     <h1>Contact</h1>
-    <p class="section-desc">Interested in collaborating or have a question? Send me a message or connect below.</p>
-    
+    <p class="section-desc">Collaborations and professional inquiries welcome.</p>
     <div class="contact-grid">
-        <!-- Form -->
-        <form class="contact-form" method="POST" novalidate autocomplete="off">
+        <form class="contact-form" method="POST" novalidate>
             <div class="form-group">
                 <label for="name">Your Name</label>
                 <input type="text" name="name" id="name" required placeholder="Enter your name">
@@ -22,8 +19,6 @@
             </div>
             <button type="submit" class="accent-btn">Send Message</button>
         </form>
-        
-        <!-- Info -->
         <div class="contact-info">
             <div class="info-block">
                 <span class="info-label">Email</span>
@@ -43,8 +38,5 @@
             </div>
         </div>
     </div>
-
 </section>
 {% endblock %}
-
-

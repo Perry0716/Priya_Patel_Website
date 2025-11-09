@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, flash, url_for
 
 app = Flask(__name__)
-app.secret_key = "your_secret_key"  # Replace with a secure env variable in production
+app.secret_key = "your_secret_key"
 
 @app.route("/")
 def home():
@@ -13,33 +13,32 @@ def about():
 
 @app.route("/work")
 def work():
-    # Sample projects for placeholder
     projects = [
         {
             "title": "Visualizing & Forecasting Stocks",
-            "description": "An analytical dashboard leveraging Python, data visualization libraries, and Jupyter Notebook to model and predict stock trends.",
-            "image": "project1.jpg",
+            "description": "Dashboard for analyzing and predicting stock trends with Python, Jupyter, and Matplotlib.",
+            "image": "stock.jpg",
             "category": "Data Science",
             "skills": ["Python", "Jupyter", "Pandas", "Matplotlib"]
         },
         {
             "title": "Aurora Fashion E-Commerce Website",
-            "description": "End-to-end responsive e-commerce platform developed with Flask, SQL, HTML, CSS, and JavaScript. Features include dynamic product displays, interactive filters, shopping cart, wishlists, and user auth.",
-            "image": "project2.jpg",
+            "description": "Full-stack e-commerce site (Flask, SQL, HTML, CSS, JS) with wishlist, filters, and dynamic content.",
+            "image": "ecomm.jpg",
             "category": "Web Development",
             "skills": ["Flask", "SQL", "HTML", "CSS", "JavaScript"]
         },
         {
             "title": "Sales Performance Dashboard",
-            "description": "Interactive Tableau dashboard for analyzing company sales KPIs. Enables strategic planning via real-time metrics visualization.",
-            "image": "project1.jpg",
+            "description": "Interactive Tableau dashboard for KPIs and sales analytics.",
+            "image": "tableau.jpg",
             "category": "Analytics",
             "skills": ["Tableau", "Excel"]
         },
         {
             "title": "Portfolio Website",
-            "description": "Personal portfolio website built with Bootstrap, HTML/CSS/JS, and SQL for showcasing professional achievements.",
-            "image": "project2.jpg",
+            "description": "Personal portfolio (Bootstrap, HTML, CSS, JS, SQL) for project & resume showcase.",
+            "image": "portfolio.jpg",
             "category": "Web Development",
             "skills": ["Bootstrap", "HTML", "CSS", "JavaScript", "SQL"]
         }
@@ -53,15 +52,11 @@ def contact():
         name = request.form.get("name", "").strip()
         email = request.form.get("email", "").strip()
         message = request.form.get("message", "").strip()
-        
-        # Simple server-side validation
         if not name or not email or not message:
             flash("All fields are required.", "error")
         elif "@" not in email or "." not in email:
             flash("Please enter a valid email address.", "error")
         else:
-            # Here you would handle the form,
-            # e.g., send an email or save to database.
             flash("Thank you for reaching out! I will get back to you soon.", "success")
             return redirect(url_for("contact"))
     return render_template("contact.html", page="contact")
@@ -70,11 +65,9 @@ def contact():
 def resume():
     return render_template("resume.html", page="resume")
 
-# Error handling
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template("404.html", page="404"), 404
 
 if __name__ == "__main__":
     app.run(debug=True)
-

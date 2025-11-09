@@ -1,3 +1,4 @@
+
 // Loader animation: fade out when page is fully loaded
 window.addEventListener('load', function () {
     var loader = document.getElementById('loader');
@@ -5,7 +6,7 @@ window.addEventListener('load', function () {
         loader.style.opacity = 0;
         setTimeout(function () {
             loader.style.display = 'none';
-        }, 500);
+        }, 350);
     }
 });
 
@@ -25,7 +26,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
 });
 
 // Portfolio filter functionality
-window.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     var filterBtns = document.querySelectorAll('.filter-btn');
     var cards = document.querySelectorAll('.project-card');
     filterBtns.forEach(function(btn){
@@ -50,13 +51,5 @@ window.addEventListener('DOMContentLoaded', function () {
     if (allBtn) allBtn.click();
 });
 
-// Subtle fade for portfolio cards
-var style = document.createElement('style');
-style.innerHTML = `
-.project-card.fade-in { 
-    animation: fadeInMoveUp 0.7s cubic-bezier(.52,.7,.22,.89);
-}
-`;
-document.head.appendChild(style);
 
 
