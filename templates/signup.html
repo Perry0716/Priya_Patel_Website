@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1>Join the Adventure! 🚀</h1>
+            <p class="auth-subtitle">Create your account and become part of something awesome.</p>
+        </div>
+        <form class="auth-form" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required placeholder="Choose your superhero name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required placeholder="your.awesome@email.com">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required placeholder="Make it strong! 💪">
+            </div>
+            <button type="submit" class="accent-btn full-width">Sign Up & Start Exploring</button>
+        </form>
+        <div class="auth-footer">
+            <p>Already have an account? <a href="{{ url_for('login') }}">Log in here!</a></p>
+            <p class="fun-text">🎯 Fun fact: 87% of awesome people have accounts here!</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

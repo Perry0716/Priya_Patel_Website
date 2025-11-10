@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="dashboard-section">
+    <div class="dashboard-header">
+        <h1>Welcome to Your Dashboard! 🎯</h1>
+        <p>Hey there, {{ session.username }}! This is your personal command center.</p>
+    </div>
+    <div class="dashboard-content">
+        <div class="dashboard-card">
+            <h2>🚀 Your Journey Starts Here</h2>
+            <p>This is where the magic happens! Future updates will include awesome features like project management, analytics, and more.</p>
+        </div>
+        <div class="dashboard-card">
+            <h2>📊 Coming Soon</h2>
+            <ul>
+                <li>Personal project tracker</li>
+                <li>Learning progress dashboard</li>
+                <li>Collaboration tools</li>
+                <li>Achievement badges 🏆</li>
+            </ul>
+        </div>
+        <div class="dashboard-actions">
+            <a href="{{ url_for('work') }}" class="accent-btn">Explore Projects</a>
+            <a href="{{ url_for('logout') }}" class="secondary-btn">Logout</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

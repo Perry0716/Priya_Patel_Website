@@ -22,6 +22,13 @@
                 <li><a href="{{ url_for('about') }}" class="{% if page == 'about' %}active{% endif %}">About</a></li>
                 <li><a href="{{ url_for('work') }}" class="{% if page == 'work' %}active{% endif %}">Work</a></li>
                 <li><a href="{{ url_for('resume') }}" class="{% if page == 'resume' %}active{% endif %}">Resume</a></li>
+                {% if session.user_id %}
+                    <li><a href="{{ url_for('dashboard') }}" class="{% if page == 'dashboard' %}active{% endif %}">Dashboard</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="secondary-nav">Logout</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}" class="{% if page == 'login' %}active{% endif %}">Login</a></li>
+                    <li><a href="{{ url_for('signup') }}" class="{% if page == 'signup' %}active{% endif %}">Sign Up</a></li>
+                {% endif %}
                 <li><a href="{{ url_for('contact') }}" class="contact-btn {% if page == 'contact' %}active{% endif %}">Contact</a></li>
             </ul>
         </nav>

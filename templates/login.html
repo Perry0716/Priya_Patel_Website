@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="auth-section">
+    <div class="auth-container">
+        <div class="auth-header">
+            <h1>Welcome Back! 🎉</h1>
+            <p class="auth-subtitle">Ready to dive back into your digital workspace?</p>
+        </div>
+        <form class="auth-form" method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" name="username" id="username" required placeholder="Enter your username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required placeholder="Your secret code">
+            </div>
+            <button type="submit" class="accent-btn full-width">Log In & Get Started</button>
+        </form>
+        <div class="auth-footer">
+            <p>New here? <a href="{{ url_for('signup') }}">Create an account!</a></p>
+            <p class="fun-text">🔥 Pro tip: Coffee makes everything better, including logging in!</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
